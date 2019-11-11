@@ -3,19 +3,17 @@
 
 import 'egg';
 import ExportHome from '../../../app/controller/home';
-import ExportApiAuthorAction from '../../../app/controller/api/author/action';
-import ExportApiWechatIdentify from '../../../app/controller/api/wechat/identify';
+import ExportWechat from '../../../app/controller/wechat';
+import ExportApiAuthor from '../../../app/controller/api/author';
+import ExportApiWechat from '../../../app/controller/api/wechat';
 
 declare module 'egg' {
   interface IController {
     home: ExportHome;
+    wechat: ExportWechat;
     api: {
-      author: {
-        action: ExportApiAuthorAction;
-      }
-      wechat: {
-        identify: ExportApiWechatIdentify;
-      }
+      author: ExportApiAuthor;
+      wechat: ExportApiWechat;
     }
   }
 }

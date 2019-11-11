@@ -10,6 +10,10 @@ export default class Test extends Service {
    * @param name - your name
    */
   public async sayHi(name: string) {
-    return `hi, ${name}`;
+    console.log(name);
+    const result = await this.app.mysql.insert('posts', { title: 'Hello World' });
+    // return `hi, ${name}` + JSON.stringify(this.config);
+    // return JSON.stringify(Object.keys(this.app));
+    return JSON.stringify(result);
   }
 }

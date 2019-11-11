@@ -1,7 +1,7 @@
 import { Service } from 'egg';
 
 /**
- * Test Service
+ * Wechat Service
  */
 export default class Wechat extends Service {
 
@@ -12,18 +12,18 @@ export default class Wechat extends Service {
      * @param nonce
      * @param echostr
      */
-    public async identify(signature:string, timestamp:string, nonce:string, echostr:string) {
+    public async identify(signature: string, timestamp: string, nonce: string, echostr: string) {
         const token = 'wechatToken';
-        const datalist = [ token, timestamp, nonce ];
-        datalist.sort();
-        const crypto = require('crypto');
-        const sha1 = crypto.createHash('sha1');
-        datalist.map(dataItem => {
+        const dataList = [ token, timestamp, nonce ];
+        dataList.sort();
+        const codeTool = require('crypto');
+        const sha1 = codeTool.createHash('sha1');
+        dataList.map(dataItem => {
             sha1.update(dataItem);
         });
         const hashcode = sha1.digest('hex');
         // console.log(hashcode + '');
-        let content = ''
+        let content = '';
         if (hashcode === signature) {
             content = echostr;
         }
