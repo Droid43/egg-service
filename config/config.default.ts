@@ -19,7 +19,7 @@ export default (appInfo: EggAppInfo) => {
     // 单数据库信息配置
     client: {
       // host
-      host: '127.0.0.1',
+      host: '0.0.0.0',
       // 端口号
       port: '3306',
       // 用户名
@@ -34,6 +34,11 @@ export default (appInfo: EggAppInfo) => {
     // 是否加载到 agent 上，默认关闭
     agent: false,
   };
+
+  config.cors = {
+    origin: '*',
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
+  }
 
   // the return config will combines to EggAppConfig
   return {

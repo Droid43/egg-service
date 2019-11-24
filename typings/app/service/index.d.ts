@@ -5,11 +5,17 @@ import 'egg';
 import ExportAuthor from '../../../app/service/Author';
 import ExportTest from '../../../app/service/Test';
 import ExportWechat from '../../../app/service/Wechat';
+import ExportUtilIndex from '../../../app/service/Util/index';
+import ExportUtilModel from '../../../app/service/Util/model';
 
 declare module 'egg' {
   interface IService {
     author: ExportAuthor;
     test: ExportTest;
     wechat: ExportWechat;
+    util: {
+      index: ExportUtilIndex;
+      model: ExportUtilModel;
+    }
   }
 }

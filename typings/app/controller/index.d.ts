@@ -5,6 +5,7 @@ import 'egg';
 import ExportHome from '../../../app/controller/home';
 import ExportWechat from '../../../app/controller/wechat';
 import ExportApiAuthor from '../../../app/controller/api/author';
+import ExportApiUtil from '../../../app/controller/api/util';
 import ExportApiWechat from '../../../app/controller/api/wechat';
 
 declare module 'egg' {
@@ -13,6 +14,7 @@ declare module 'egg' {
     wechat: ExportWechat;
     api: {
       author: ExportApiAuthor;
+      util: ExportApiUtil;
       wechat: ExportApiWechat;
     }
   }
